@@ -8,6 +8,12 @@ export default {
     extend: {
       fontFamily:{
         customFont:['Source Sans Pro','sans-serif']
+      },
+      colors:{
+        color1: '#EEEEEE',
+        color2: '#548CA8',
+        color3: '#476072',
+        color4: '#334257'
       }
     },
   },
