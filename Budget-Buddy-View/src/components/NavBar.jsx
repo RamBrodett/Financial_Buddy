@@ -2,7 +2,10 @@ const NavBar = () => {
   return (
     <div className="bg-color1 m-0 p-5 w-screen h-20 flex flex-row" id="NavBar">
       <div className="navBarLeft w-60">
-        <h3 className="text-color4 text-3xl font-customFont font-bold" id="NB_Page-Directory">
+        <h3 
+          className="text-color4 text-3xl 
+            font-customFont font-bold cursor-default" 
+          id="NB_Page-Directory">
           BudgetBuddy 
         </h3>
       </div>
