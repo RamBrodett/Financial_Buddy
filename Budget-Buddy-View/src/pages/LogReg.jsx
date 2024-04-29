@@ -2,6 +2,9 @@ import {useEffect, useState} from "react";
 const LogReg = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [signingIn, setSiningIn] = useState(true);
+  const [errorMessage, setErrorMessage]= useState('');
+
+  //useEffect for checking cookies
 
   const [userData, setUserData] = useState({
     username: '',
@@ -13,8 +16,23 @@ const LogReg = () => {
     password: '',
   });
 
+  const resetAllForms = () => {
+    setUserData({
+      username:'',
+      password:'',
+      confirm_password:''
+    });
+    setUserSignData({
+      username:'',
+      password:''
+    });
+  }
+
   const handleButtonSwitch = () => {
     setSiningIn((prev) => !prev);
+    setErrorMessage('');
+    resetAllForms();
+
   }
 
   const handleInputChange = (e) => {
@@ -38,6 +56,8 @@ const LogReg = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setErrorMessage('');
+
     if (signingIn){
       console.log(userSignData);
       setUserSignData({
@@ -46,14 +66,46 @@ const LogReg = () => {
       });
       setLoggedIn(true);
 
-    }else {
-      console.log(userData);
-      setUserData({
-        username: '',
-        password: '',
-        confirm_password:''
-    });
+      /**
+       * if(username){
+       * 
+       *  if(password did not match with the account){
+       *  
+       *    setErrorMessage('username or password is wrong');
+       * }else{
+       *    setErrorMessage('username or password is wrong');
+       * }
+       */
 
+    }else {
+      //validation of credentials
+
+      //get the availability of username
+
+      const usernameAvailability = true //temporary
+
+      if((userData.password === userData.confirm_password) && usernameAvailability){
+        console.log(userData);
+        setUserData({
+          username: '',
+          password: '',
+          confirm_password:''
+        });
+        setSiningIn(true);
+      }else if(userData.password !== userData.confirm_password){
+        setUserData((prevData) => ({
+          ...prevData,
+          password: '',
+          confirm_password:''
+        }));
+        setErrorMessage('passwords did not match');
+      }else if(!usernameAvailability){
+        setUserData((prevData) => ({
+          ...prevData,
+          username:''
+        }));
+        setErrorMessage('username already used');
+      }
     }
   }
 
@@ -68,16 +120,16 @@ const LogReg = () => {
   return (
     <div className=" flex justify-center items-center flex flex-col h-screen">
       <div 
-        className="w-2/4 min-h-96 m-auto my-96 bg-color1 relative 
+        className="w-2/4 min-h-[450px] m-auto my-96 bg-color1 relative 
         rounded-xl shadow-logregShadow" id="container">
         <div 
-          className="absolute top-12 h-full transition-all 
+          className="absolute top-[59px] h-full transition-all 
             duration-75 ease-in-out left-0 w-1/2 z-20 overflow-hidden">
           <form 
             className="flex flex-col 
             items-center justify-center
             py-0 px-12">
-            <h1 className=" cursor-default font-extrabold font-customFont text-4xl">{signingIn ? ('Sign in'):('Create account')}</h1>
+            <h1 className=" cursor-default font-extrabold font-customFont text-4xl mb-3">{signingIn ? ('Sign in'):('Create account')}</h1>
                 <input 
                   className="bg-stone-200 py-3  px-3.5 my-2 w-full"
                   type="text" placeholder="Username" name="username" value={signingIn ? userSignData.username : userData.username} onChange={handleInputChange}/>
@@ -97,6 +149,8 @@ const LogReg = () => {
                   bg-color3 text-color1
                   active:scale-95 tracking-wider
                   focus:outline-none" onClick={handleSubmit}>{signingIn ? 'Sign in' : 'Sign up'}</button>
+
+                <span className="mt-7 text-red-500">{errorMessage}</span>
           </form>
               
         </div>
