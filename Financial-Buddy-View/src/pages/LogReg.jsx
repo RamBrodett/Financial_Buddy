@@ -1,4 +1,6 @@
 import {useEffect, useState} from "react";
+import finManSVG from'../assets/SVG/FinancialBuddy.svg';
+
 const LogReg = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [signingIn, setSiningIn] = useState(true);
@@ -123,12 +125,12 @@ const LogReg = () => {
         className="w-2/4 min-h-[450px] m-auto my-96 bg-color1 relative 
         rounded-xl shadow-logregShadow" id="container">
         <div 
-          className="absolute top-[59px] h-full transition-all 
-            duration-75 ease-in-out left-0 w-1/2 z-20 overflow-hidden">
+          className="absolute top-[25px] h-full transition-all 
+             left-0 w-1/2 z-20 overflow-hidden">
           <form 
-            className="flex flex-col 
+            className="inherit flex flex-col 
             items-center justify-center
-            py-0 px-12">
+            py-0 px-12 h-full">
             <h1 className=" cursor-default font-extrabold font-customFont text-4xl mb-3">{signingIn ? ('Sign in'):('Create account')}</h1>
                 <input 
                   className="bg-stone-200 py-3  px-3.5 my-2 w-full"
@@ -160,14 +162,15 @@ const LogReg = () => {
               <h1 className="cursor-default font-bold text-5xl mb-3">
                 {signingIn ? 'Welcome back!' : 'Hello, friend!'}</h1>
               <p className="mt-5 cursor-default font-regular font-customFont text-justify">
-              {signingIn ? ('To keep connected with us please login with your personal info.'):
-              ('Fill up the form with the correct details to create an account.')}</p>
+              {signingIn ? ('Your budget buddy is here to help you monitor your funds. Sign in to continue!'):
+              ('Fill up the form with the correct details and Let your top budget buddy assist you. Create your account now!')}</p>
               <button className="m-auto bg-transparent 
                py-1 px-5 rounded-3xl border
                border-color1 font-bold
                bg-color3 text-color1
                active:scale-95 tracking-wider
                focus:outline-none mt-10" id="signIn" onClick={handleButtonSwitch}>{signingIn ? ('Sign up'):('Sign in')}</button>
+               <img className="w-2/5 relative  ml-auto" src={finManSVG}/>
             </div>
           </div>
         </div>

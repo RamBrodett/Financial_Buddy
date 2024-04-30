@@ -6,7 +6,7 @@ const NavBar = () => {
           className="text-color4 text-3xl 
             font-customFont font-bold cursor-default" 
           id="NB_Page-Directory">
-          BudgetBuddy 
+          Financial Buddy
         </h3>
       </div>
       <div className="navBarRight ml-auto mr-5">
