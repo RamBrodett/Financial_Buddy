@@ -3,7 +3,7 @@ const NavBar = () => {
     <div className="bg-color1 m-0 p-5 w-screen h-20 flex flex-row" id="NavBar">
       <div className="navBarLeft w-60">
         <h3 
-          className="text-color4 text-3xl 
+          className="ml-3 text-color4 text-3xl 
             font-customFont font-bold cursor-default" 
           id="NB_Page-Directory">
           Financial Buddy

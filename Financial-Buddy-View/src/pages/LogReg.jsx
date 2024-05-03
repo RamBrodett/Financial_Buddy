@@ -162,8 +162,8 @@ const LogReg = () => {
               <h1 className="cursor-default font-bold text-5xl mb-3">
                 {signingIn ? 'Welcome back!' : 'Hello, friend!'}</h1>
               <p className="mt-5 cursor-default font-regular font-customFont text-justify">
-              {signingIn ? ('Your budget buddy is here to help you monitor your funds. Sign in to continue!'):
-              ('Fill up the form with the correct details and Let your top budget buddy assist you. Create your account now!')}</p>
+              {signingIn ? ('Your financial buddy is here to help you monitor your funds. Sign in to continue!'):
+              ('Fill up the form with the correct details and Let your trusted financial buddy assist you. Create your account now!')}</p>
               <button className="m-auto bg-transparent 
                py-1 px-5 rounded-3xl border
                border-color1 font-bold
