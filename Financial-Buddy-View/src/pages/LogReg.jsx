@@ -122,7 +122,7 @@ const LogReg = () => {
   return (
     <div className=" flex justify-center items-center flex flex-col h-screen">
       <div 
-        className="w-2/4 min-h-[450px] m-auto my-96 bg-color1 relative 
+        className="w-2/4 min-h-[450px] min-w-[450px] m-auto my-96 bg-color1 relative 
         rounded-xl shadow-logregShadow" id="container">
         <div 
           className="absolute top-[25px] h-full transition-all 
@@ -131,7 +131,7 @@ const LogReg = () => {
             className="inherit flex flex-col 
             items-center justify-center
             py-0 px-12 h-full">
-            <h1 className=" cursor-default font-extrabold font-customFont text-4xl mb-3">{signingIn ? ('Sign in'):('Create account')}</h1>
+            <h1 className=" cursor-default font-extrabold font-customFont text-2xl truncate lg:text-3xl mb-3">{signingIn ? ('Sign in'):('Create account')}</h1>
                 <input 
                   className="bg-stone-200 py-3  px-3.5 my-2 w-full"
                   type="text" placeholder="Username" name="username" value={signingIn ? userSignData.username : userData.username} onChange={handleInputChange}/>
@@ -139,17 +139,18 @@ const LogReg = () => {
                   className="bg-stone-200 py-3  px-3.5 my-2 w-full"
                   type="password" placeholder="Password" name="password" value={signingIn ? userSignData.password : userData.password} onChange={handleInputChange}/>
                 {signingIn ?(
-                  <a className="text-slate-600 text-lg my-3.5" href="#">Forgot your password?</a>
+                  <a className="text-slate-600 text-xs md:truncate ...  lg:text-lg  my-3.5" href="#">Forgot your password?</a>
                 ):(
                   <input
                   className="bg-stone-200 py-3  px-3.5 mt-2 mb-4 w-full"
                   type="password" placeholder="Confirm Password" name="confirm_password" value={userData.confirm_password} onChange={handleInputChange} />
                 )}
                 <button 
-                  className="py-3 px-11 rounded-3xl border
+                  className="py-2 lg:py-3 px-11 rounded-3xl border
                   border-color3 font-bold
                   bg-color3 text-color1
                   active:scale-95 tracking-wider
+                  text-xs truncate lg:text-xl
                   focus:outline-none" onClick={handleSubmit}>{signingIn ? 'Sign in' : 'Sign up'}</button>
 
                 <span className="mt-7 text-red-500">{errorMessage}</span>
@@ -159,9 +160,9 @@ const LogReg = () => {
         <div className="relative left-1/2 w-1/2 h-full overflow-hidden z-100 rounded-r-xl ">
           <div className="overlay bg-color3 text-color1 h-full bg-cover">
             <div className="absolute top-9 content-center items-center justify-center flex flex-col p-11">
-              <h1 className="cursor-default font-bold text-5xl mb-3">
+              <h1 className="cursor-default font-bold text-3xl lg:text-5xl mb-1 lg:mb-3">
                 {signingIn ? 'Welcome back!' : 'Hello, friend!'}</h1>
-              <p className="mt-5 cursor-default font-regular font-customFont text-justify">
+              <p className="mt-4 cursor-default font-regular font-customFont text-justify">
               {signingIn ? ('Your financial buddy is here to help you monitor your funds. Sign in to continue!'):
               ('Fill up the form with the correct details and Let your trusted financial buddy assist you. Create your account now!')}</p>
               <button className="m-auto bg-transparent 
@@ -170,7 +171,7 @@ const LogReg = () => {
                bg-color3 text-color1
                active:scale-95 tracking-wider
                focus:outline-none mt-10" id="signIn" onClick={handleButtonSwitch}>{signingIn ? ('Sign up'):('Sign in')}</button>
-               <img className="w-2/5 relative  ml-auto" src={finManSVG}/>
+               <img className="w-2/5 relative lg:-mt-10 ml-auto" src={finManSVG}/>
             </div>
           </div>
         </div>

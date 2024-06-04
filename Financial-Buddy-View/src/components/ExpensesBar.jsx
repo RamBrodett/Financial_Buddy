@@ -9,9 +9,9 @@ const ExpensesBar = ({Currency, Value}) => {
   const asterisks = '*'.repeat(formattedValue.length);
   return (
     <div className='bg-slate-50 h-[90px] flex flex-row p-6 rounded-md border border-4 w-full' id="Expenses_Bar_Container">
-        <h1 className='font-customFont font-bold text-4xl self-center'>Expenses</h1>
+        <h1 className='font-customFont font-bold text-xl md:text-4xl self-center'>Expenses</h1>
         <div className='self-center ml-4 flex' id="Value">
-        <p className="ml-10 text-4xl text-slate-600 font-sans ">{Currency} {visible ? formattedValue : asterisks}</p>
+        <p className="ml-4 md:ml-10 text-xl md:text-4xl text-slate-600 font-sans ">{Currency} {visible ? formattedValue : asterisks}</p>
         </div>
     </div>
   )

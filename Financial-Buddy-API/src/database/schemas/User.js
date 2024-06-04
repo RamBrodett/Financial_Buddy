@@ -19,10 +19,15 @@ const userSchema = new Schema({
         type:Number,
         default: 0
     },
-    expenses:{
-        type:Number,
-        default: 0
-    }
+    goals:[
+        {
+            title:{
+                type: String,
+            },
+            goalPrice:{
+                type: Number,
+            }
+        }]
 });
 
 userSchema.index({userName:1});

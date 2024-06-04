@@ -3,14 +3,14 @@ const NavBar = () => {
     <div className="bg-color1 m-0 p-5 w-screen h-20 flex flex-row" id="NavBar">
       <div className="navBarLeft w-60">
         <h3 
-          className="ml-3 text-color4 text-3xl 
+          className="ml-3 text-color4 text-sm md:text-3xl
             font-customFont font-bold cursor-default" 
           id="NB_Page-Directory">
           Financial Buddy
         </h3>
       </div>
       <div className="navBarRight ml-auto mr-5">
-      <nav className="font-customFont font-bold text-xl my-1">
+      <nav className="font-customFont font-bold text-sm md:text-xl my-1">
           <a
             className={`ml-8 text-color2 font-regular ${
               location.pathname === '/dashboard' ? ' text-color4' : ''
