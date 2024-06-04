@@ -29,3 +29,11 @@
     font-weight: 700; /* Bold */
     src: url('./assets/fonts/SourceSansPro-Bold.otf') format('opentype');
 }
+
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
